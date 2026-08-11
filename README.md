@@ -1,45 +1,24 @@
-# backup-sentinel
+# autobackup-hub
 
 Sistema desktop de backup automático desenvolvido em Python, construído sobre **Arquitetura Hexagonal (Ports & Adapters)** para permitir múltiplos provedores de armazenamento intercambiáveis sem acoplamento com a lógica de negócio. O sistema monitora pastas configuradas em tempo real, categoriza arquivos por extensão, compacta antes do envio e notifica o usuário por email a cada lote processado — com controle de limite de armazenamento e rate limiting nas integrações externas.
 
-> 🚧 Projeto em desenvolvimento — construído como estudo prático de Python, arquitetura de software e integração com APIs externas.
+> Projeto em desenvolvimento — construído como estudo prático de Python, arquitetura de software e integração com APIs externas.
 
 ---
 
-## 🔄 Fluxo de Usuário
+## Fluxo de Usuário
 
 > _placeholder — diagrama/imagem do fluxo de usuário será inserido aqui_
 
 ---
 
-## 📌 Sobre o Projeto
+## Sobre o Projeto
 
 O **backup-sentinel** resolve um problema comum: manter cópias de segurança de pastas importantes de forma automática, organizada por tipo de arquivo, e com flexibilidade para escolher onde esses arquivos são armazenados — seja em provedores de nuvem (AWS S3, Google Drive) ou em um servidor local acessível via internet.
 
 A escolha pela Arquitetura Hexagonal foi intencional: o núcleo de regras de negócio (categorização, controle de limite, orquestração de backup) não conhece detalhes de infraestrutura. Cada provedor de armazenamento é um *adapter* que implementa uma *port* comum, permitindo adicionar novos destinos de backup sem alterar a lógica central do sistema.
 
----
-
-## 🏗️ Arquitetura
-
-```
-src/
-├── domain/           → entidades puras (File, Category, BackupJob)
-├── application/
-│   ├── use_cases/    → regras de negócio (BackupFile, CategorizeFile, CheckStorageLimit...)
-│   └── ports/        → contratos abstratos (StorageProvider, Notifier, ConfigRepository...)
-└── adapters/
-    ├── storage/       → S3Provider, GoogleDriveProvider, LocalServerProvider
-    ├── notification/  → SmtpNotifier
-    ├── persistence/   → SqliteRepository
-    └── gui/           → interface com abas (CustomTkinter)
-```
-
-`domain/` e `application/` nunca dependem de `adapters/` — a dependência sempre aponta para dentro, seguindo o princípio de inversão de dependência.
-
----
-
-## ✅ Requisitos Funcionais
+## Requisitos Funcionais
 
 ### Interface
 
@@ -78,7 +57,7 @@ src/
 
 ---
 
-## 🔒 Requisitos Não Funcionais
+## Requisitos Não Funcionais
 
 - O sistema deve ser totalmente personalizável.
 - O sistema deve ser totalmente desativável — ao fechar o app, todos os processos e fluxos em andamento devem ser encerrados.
@@ -89,7 +68,7 @@ src/
 
 ---
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 | Camada | Biblioteca |
 |---|---|
@@ -109,7 +88,7 @@ src/
 
 ---
 
-## ▶️ Como Executar
+## Como Executar
 
 ```bash
 git clone https://github.com/ScopelYann/backup-sentinel.git
@@ -122,6 +101,6 @@ python main.py
 
 ---
 
-## 📄 Licença
+## Licença
 
 Em definição.
