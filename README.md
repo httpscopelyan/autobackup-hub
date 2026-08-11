@@ -8,7 +8,8 @@ Sistema desktop de backup automático desenvolvido em Python, construído sobre 
 
 ## Fluxo de Usuário
 
-> _placeholder — diagrama/imagem do fluxo de usuário será inserido aqui_
+> <img width="998" height="363" alt="Captura de tela 2026-08-11 141613" src="https://github.com/user-attachments/assets/610c398c-5df0-4f12-bad7-50344bc76dd3" />
+
 
 ---
 
