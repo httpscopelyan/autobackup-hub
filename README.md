@@ -15,7 +15,7 @@ Sistema desktop de backup automático desenvolvido em Python, construído sobre 
 
 ## Sobre o Projeto
 
-O **backup-sentinel** resolve um problema comum: manter cópias de segurança de pastas importantes de forma automática, organizada por tipo de arquivo, e com flexibilidade para escolher onde esses arquivos são armazenados — seja em provedores de nuvem (AWS S3, Google Drive) ou em um servidor local acessível via internet.
+O **autobackup-hub** resolve um problema comum: manter cópias de segurança de pastas importantes de forma automática, organizada por tipo de arquivo, e com flexibilidade para escolher onde esses arquivos são armazenados — seja em provedores de nuvem (AWS S3, Google Drive) ou em um servidor local acessível via internet.
 
 A escolha pela Arquitetura Hexagonal foi intencional: o núcleo de regras de negócio (categorização, controle de limite, orquestração de backup) não conhece detalhes de infraestrutura. Cada provedor de armazenamento é um *adapter* que implementa uma *port* comum, permitindo adicionar novos destinos de backup sem alterar a lógica central do sistema.
 
@@ -92,8 +92,8 @@ A escolha pela Arquitetura Hexagonal foi intencional: o núcleo de regras de neg
 ## Como Executar
 
 ```bash
-git clone https://github.com/ScopelYann/backup-sentinel.git
-cd backup-sentinel
+git clone https://github.com/ScopelYann/autobackup-hub.git
+cd autobackup-hub
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
