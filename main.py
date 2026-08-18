@@ -1,28 +1,20 @@
 import customtkinter
 import time
-
-def textout(): 
-    print("Olá Mundo!")
-    time.sleep(1)
-    print("Ou Hello World!")
-
+import state
+from src.domain.adapters.gui.tabs.tab_home import tab_home
 
 
 def main():
-    app = customtkinter.CTk()
 
-    app.title("AutoBackup")
-    app.geometry("400x730")
+    state.app = customtkinter.CTk()
+    state.app.title("AutoBackup")
+    state.app.geometry("400x730+6500px-15px")
 
-    button = customtkinter.CTkButton(app, text="Clique!", command=textout)
-    button.grid(row=50, column=5, padx=20, pady=20)
+    tab_home()
 
-    app.columnconfigure(0, weight=1)
-
-    button.grid(row=0, column=0)
-    
-
-    app.mainloop()
+    state.app.columnconfigure(0, weight=1)
+    state.app.mainloop()
 
 
-main()
+if __name__ == "__main__":
+    main()
