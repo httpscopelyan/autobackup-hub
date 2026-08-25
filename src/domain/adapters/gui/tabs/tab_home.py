@@ -1,21 +1,40 @@
 import customtkinter
 import state
-
+import awesometkinter as atk
+from src.domain.adapters.gui.button.button import SegmentedBar
 
 def tab_home():
-    tabhome = customtkinter.CTkTabview(master=state.app,
-        segmented_button_selected_color="#750994",
-        segmented_button_selected_hover_color="#7509aa"
+    state.tabhome = customtkinter.CTkTabview(master=state.app,
+        fg_color="#2a2a2a"
     )
-    tabhome.grid(padx=20, pady=20)
 
-    frame1 = tabhome.add("Home")
-    frame2 = tabhome.add("Configuration")
+    state.tabhome.columnconfigure(0, weight=1)
+    state.tabhome._segmented_button.grid_configure(padx=20, pady=(20, 0))
 
-    tabhome.set("Home")
 
-    tabhome.pack(fill="both", expand=True, padx=20, pady=20)
+    for i in state.TELAS: 
+        frames = state.tabhome.add(i)
 
-    customtkinter.CTkLabel(frame1, text="Home").grid(padx=10, pady=10)
-    frame1.columnconfigure(0, weight=1)
-    customtkinter.CTkButton(frame2, text="Clique!").grid(padx=10, pady=2)
+    state.tabhome._segmented_button.grid_forget()
+
+    bar = SegmentedBar(
+        state.app,
+        state.TELAS,
+    )
+    bar.pack(padx=20, pady=20)
+
+    button = customtkinter.CTkButton(frames, text="Olá")
+    button.pack(padx=20, pady=20)
+
+    frames.configure(fg_color="#2a2a2a")
+    frames.columnconfigure(0, weight=1)
+
+
+    
+    state.tabhome.pack(fill="both", expand=True, padx=20, pady=20)
+    state.tabhome.set("Inicio")
+
+
+    # div = customtkinter.CTkFrame(master=frame1, corner_radius=10, fg_color="#2b2f2f")
+    # div.pack(padx=20, pady=5, fill="x")
+    # atk.RadialProgressbar(frame1, fg="#750994", parent_bg="#2a2a2a", size=120).grid(row=0, column=0, padx=10, pady=10)
