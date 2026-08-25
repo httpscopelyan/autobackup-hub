@@ -37,7 +37,7 @@ class SegmentedBar(ctk.CTkFrame):
             btn.grid(row=0, column=i, padx=padx, pady=4)
             self.buttons[nome] = btn
 
-            if nome == "Inicio":
+            if nome == state.TELAS[0]:
                 btn.configure(fg_color=ATIVO_BG, text_color=TXT_ATIVO)
             
 

@@ -1,7 +1,7 @@
 import customtkinter
 import time
 import state
-from src.domain.adapters.gui.tabs.tab_home import tab_home
+from src.adapters.gui.tabs.tab_home import tab_home
 
 
 
