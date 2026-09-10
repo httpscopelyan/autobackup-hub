@@ -31,8 +31,7 @@ class SegmentedBar(ctk.CTkFrame):
                 border_width=0,
                 command= lambda n = nome: self.select(n)
             )
-            # 10px nas pontas: com padx=3 o canvas do botao invadia o canto
-            # arredondado do trilho e sobrava um retangulo claro
+            
             padx = (10 if i == 0 else 5, 10 if i == len(tabs) - 1 else 3)
             btn.grid(row=0, column=i, padx=padx, pady=4)
             self.buttons[nome] = btn
@@ -42,7 +41,7 @@ class SegmentedBar(ctk.CTkFrame):
             
 
     def select(self, nome): 
-        self.on_select = state.tabhome.set(nome)
+        self.on_select = state.maintab.set(nome)
         for i, btn in self.buttons.items():
             if i == nome:
                 btn.configure(fg_color=ATIVO_BG, text_color=TXT_ATIVO)
