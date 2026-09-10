@@ -5,8 +5,8 @@ from src.adapters.gui.tabs.Tab_Inicio import Tab_Inicio
 
 def MainTab():
     state.maintab = customtkinter.CTkTabview(master=state.app,
-        bg_color="#2a2a2a",
-        fg_color="#2a2a2a"
+        bg_color="#16171D",
+        fg_color="#16171D"
     )
 
     state.maintab.columnconfigure(0, weight=1)
@@ -14,7 +14,7 @@ def MainTab():
 
     for nome in state.TELAS:
         frame = state.maintab.add(nome)
-        frame.configure(fg_color="#2a2a2a")
+        frame.configure(fg_color="#16171D")
         frame.columnconfigure(0, weight=1)
         state.frames[nome] = frame
 

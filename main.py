@@ -7,7 +7,7 @@ from src.adapters.gui.tabs.MainTab import MainTab
 
 def main():
 
-    state.app = customtkinter.CTk(fg_color="#2a2a2a")
+    state.app = customtkinter.CTk(fg_color="#16171D")
     state.app.title("AutoBackup")
     state.app.geometry("1020x620+6500px-15px")
 

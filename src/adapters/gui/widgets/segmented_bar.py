@@ -2,14 +2,14 @@ import customtkinter as ctk
 import state
 
 
-TRILHO      = "#EDECF7"  
-PILL        = "#FFFFFF"   
-PILL_HOVER  = "#FFFFFF"
-INATIVO_BG  = "#EDEDED"  
-ATIVO_BG    = "#c2c2c2"
-INATIVO_HV  = "#E4E2F2"
-TXT_ATIVO   = "#2ab" 
-TXT_INATIVO = "#A3A1BF"   
+TRILHO      = "#1E1F27"
+PILL        = "#292A36"
+PILL_HOVER  = "#323443"
+INATIVO_BG  = "#1E1F27"
+ATIVO_BG    = "#353745"
+INATIVO_HV  = "#262833"
+TXT_ATIVO   = "#40E0D0"
+TXT_INATIVO = "#9295A6"
 
 
 class SegmentedBar(ctk.CTkFrame):
