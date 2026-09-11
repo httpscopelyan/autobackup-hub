@@ -127,8 +127,73 @@ def Tab_Inicio() :
     LimitSaveLabel.pack(anchor="w", padx=35, pady=0)
     OptionMenu.pack(side="top", anchor="n",fill="x", expand=True, padx=35, pady=0)
 
+    BadgeColors = {
+        "Mídia":  {"bg": "#2C2650", "text": "#9B8CFF"},
+        "Doc":    {"bg": "#1B3A2E", "text": "#4ADE9E"},
+        "Imagem": {"bg": "#3A2A1B", "text": "#F0A868"},
+    }
 
-    
+    Arquivos = [
+        {"tipo": "Mídia",  "nome": "backup-video.mp4",      "tamanho": "412 MB"},
+        {"tipo": "Doc",    "nome": "contrato-assinado.pdf", "tamanho": "2,1 MB"},
+        {"tipo": "Doc",    "nome": "orcamento-agosto.xlsx", "tamanho": "840 KB"},
+        {"tipo": "Imagem", "nome": "print-erro-build.png",  "tamanho": "1,4 MB"},
+    ]
 
-    
+    RecentLabel = customtkinter.CTkLabel(
+        frames["GridFrame2"],
+        text="ENVIADOS RECENTEMENTE",
+        text_color=state.TEXT_SUB,
+        font=("Arial", 13, "bold"),
+    )
+    RecentLabel.pack(anchor="w", padx=35, pady=20)
+
+    for arquivo in Arquivos:
+        cores = BadgeColors[arquivo["tipo"]]
+
+        linha = customtkinter.CTkFrame(
+            frames["GridFrame2"],
+            fg_color="transparent",
+        )
+        linha.pack(fill="x", padx=35, pady=6)
+
+        badge = customtkinter.CTkLabel(
+            linha,
+            text=arquivo["tipo"],
+            text_color=cores["text"],
+            fg_color=cores["bg"],
+            bg_color=state.RD_BG,
+            corner_radius=8,
+            font=("Arial", 10, "bold"),
+            width=55,
+            height=22,
+        )
+        badge.pack(side="left", padx=(0, 12))
+
+        nome = customtkinter.CTkLabel(
+            linha,
+            text=arquivo["nome"],
+            text_color=state.TEXT_MAIN,
+            font=("Arial", 11),
+            anchor="w",
+        )
+        nome.pack(side="left", fill="x", expand=True)
+
+        tamanho = customtkinter.CTkLabel(
+            linha,
+            text=arquivo["tamanho"],
+            text_color=state.TEXT_SUB,
+            font=("Arial", 10),
+        )
+        tamanho.pack(side="right")
+
+    RodapeLabel = customtkinter.CTkLabel(
+        frames["GridFrame2"],
+        text=f"Próximo backup em {len(Arquivos)} arquivo(s)",
+        text_color=state.TEXT_SUB,
+        font=("Arial", 10),
+    )
+    RodapeLabel.pack(anchor="w", padx=35, pady=(10, 0))
+
+
     scrollable.pack(fill="both", expand=True, padx=0, pady=0)
